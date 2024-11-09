@@ -137,3 +137,10 @@ Example usage commands:
 
 #### Get bulk open interest snapshot:
    `python main.py options snapshot bulk-open-interest AAPL 20240119`
+
+
+## Disclaimer
+Currently work in progress for cloasing the theta Terminal connection.
+
+Workaround - 
+1. After work done, execute the last query again to close the connection.
