@@ -60,25 +60,25 @@ This will save the data as a local CSV named `ohlc_AAPL_20240101_20240201.csv`. 
 
 Example usage commands:
 
-Stocks Historical Data:
+* Stocks Historical Data:
 Get end-of-day report:
-   python main.py stocks historical eod-report AAPL 20240101 20240131
+   `python main.py stocks historical eod-report AAPL 20240101 20240131`
 
 Get quotes:
-   python main.py stocks historical quotes MSFT 20240101 20240131 --interval 3600000
+   `python main.py stocks historical quotes MSFT 20240101 20240131 --interval 3600000`
 
-Stocks Snapshot Data:
+* Stocks Snapshot Data:
 Get real-time quotes:
-   python main.py stocks snapshot quotes AAPL
+   `python main.py stocks snapshot quotes AAPL`
 
 Get real-time OHLC:
-   python main.py stocks snapshot ohlc NVDA
+   `python main.py stocks snapshot ohlc NVDA
 
 Get real-time trades:
    python main.py stocks snapshot trades TSLA
 
-Options Data:
-Historical:
+* Options Data:
+* Historical:
 Get historical EOD report:
    python main.py options historical eod-report AAPL 20240119 170000 C 20240101 20240131
 
@@ -103,7 +103,7 @@ Get historical trade Greeks:
 Get historical trade Greeks third order:
    python main.py options historical trade-greeks-third-order AAPL 20240119 170000 C 20240101 20240131
 
-Bulk:
+* Bulk:
 Get bulk EOD:
    python main.py options bulk eod AAPL 20240119 20240101 20240131
 
@@ -119,7 +119,7 @@ Get bulk trade quote:
 Get bulk trade Greeks:
    python main.py options bulk trade-greeks AAPL 20240119 20240101 20240131
 
-Snapshot:
+* Snapshot:
 Get quote snapshot:
    python main.py options snapshot quote AAPL 20240119 170000 C
 
