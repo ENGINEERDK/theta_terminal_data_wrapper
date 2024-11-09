@@ -2,7 +2,6 @@
 
 This repo implements an unofficial Python wrapper for the [ThetaData REST API](https://http-docs.thetadata.us/docs/theta-data-rest-api-v2/4g9ms9h4009k0-getting-started).
 
-> #### Bonus: New ThetaData customers can get 30% off their first month with code **PYTHON4TRADERS**.
 
 ## Context
 The original [thetadata-python](https://github.com/ThetaData-API/thetadata-python) library is deprecated and it's preferred to use the REST API directly. 
@@ -34,9 +33,9 @@ Several code examples are available [here](https://github.com/pythonfortraders/t
 There's also a command line interface available in `cli`. You can use it as follows: 
 
 ```
-(pft) ➜  cli git:(main) python thetadata_cli.py 
+(pft) ➜  cli git:(main) python main.py 
                                                                                                                                      
- Usage: thetadata_cli.py [OPTIONS] COMMAND [ARGS]...                                                                                 
+ Usage: main.py [OPTIONS] COMMAND [ARGS]...                                                                                 
                                                                                                                                      
 ╭─ Options ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │ --install-completion          Install completion for the current shell.                                                           │
@@ -61,13 +60,17 @@ This will save the data as a local CSV named `ohlc_AAPL_20240101_20240201.csv`. 
 Example usage commands:
 
 * Stocks Historical Data:
+
 Get end-of-day report:
+   
    `python main.py stocks historical eod-report AAPL 20240101 20240131`
 
 Get quotes:
+
    `python main.py stocks historical quotes MSFT 20240101 20240131 --interval 3600000`
 
 * Stocks Snapshot Data:
+
 Get real-time quotes:
    `python main.py stocks snapshot quotes AAPL`
 
