@@ -55,9 +55,15 @@ Subcommands nest downwards naturally. For example, let's say you want to get his
 ```
 This will save the data as a local CSV named `ohlc_AAPL_20240101_20240201.csv`. Many examples of CLI usage can be found [here](https://github.com/pythonfortraders/thetadata-api-python/blob/08ec0160da2519d5a0de73d8ec29ab8dd0c8d98c/cli/thetadata_cli.py#L1-L78).
 
+## Features
+
+1. Starts the Theta Terminal connection in backgroud automatically.
+2. Downloads the data in CSV files using below commands.
+
 ## Example Commands
 
 Example usage commands:
+Copy and execute the commands below in your terminal directly from project root, CSV data will be saved in project root.
 
 ### Stocks Historical Data:
 
@@ -80,7 +86,7 @@ Example usage commands:
 #### Get real-time trades:
    python main.py stocks snapshot trades TSLA
 
-## Options Data:
+### Options Data:
 ### Historical:
 #### Get historical EOD report:
    `python main.py options historical eod-report AAPL 20240119 170000 C 20240101 20240131`
