@@ -59,81 +59,81 @@ This will save the data as a local CSV named `ohlc_AAPL_20240101_20240201.csv`. 
 
 Example usage commands:
 
-* Stocks Historical Data:
+### Stocks Historical Data:
 
-Get end-of-day report:
+#### Get end-of-day report:
    
    `python main.py stocks historical eod-report AAPL 20240101 20240131`
 
-Get quotes:
+#### Get quotes:
 
    `python main.py stocks historical quotes MSFT 20240101 20240131 --interval 3600000`
 
-* Stocks Snapshot Data:
+### Stocks Snapshot Data:
 
-Get real-time quotes:
+#### Get real-time quotes:
    `python main.py stocks snapshot quotes AAPL`
 
-Get real-time OHLC:
+#### Get real-time OHLC:
    `python main.py stocks snapshot ohlc NVDA
 
-Get real-time trades:
+#### Get real-time trades:
    python main.py stocks snapshot trades TSLA
 
-* Options Data:
-* Historical:
-Get historical EOD report:
-   python main.py options historical eod-report AAPL 20240119 170000 C 20240101 20240131
+## Options Data:
+### Historical:
+#### Get historical EOD report:
+   `python main.py options historical eod-report AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical quotes:
-   python main.py options historical quotes AAPL 20240119 170000 C 20240101 20240131
+#### Get historical quotes:
+   `python main.py options historical quotes AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical trades:
-   python main.py options historical trades AAPL 20240119 170000 C 20240101 20240131
+#### Get historical trades:
+   `python main.py options historical trades AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical trade quote:
-   python main.py options historical trade-quote AAPL 20240119 170000 C 20240101 20240131
+#### Get historical trade quote:
+   `python main.py options historical trade-quote AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical Greeks:
-   python main.py options historical greeks AAPL 20240119 170000 C 20240101 20240131
+#### Get historical Greeks:
+   `python main.py options historical greeks AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical third-order Greeks:
-   python main.py options historical greeks-third-order AAPL 20240119 170000 C 20240101 20240131
+#### Get historical third-order Greeks:
+   `python main.py options historical greeks-third-order AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical trade Greeks:
-   python main.py options historical trade-greeks AAPL 20240119 170000 C 20240101 20240131
+#### Get historical trade Greeks:
+   `python main.py options historical trade-greeks AAPL 20240119 170000 C 20240101 20240131`
 
-Get historical trade Greeks third order:
-   python main.py options historical trade-greeks-third-order AAPL 20240119 170000 C 20240101 20240131
+#### Get historical trade Greeks third order:
+   `python main.py options historical trade-greeks-third-order AAPL 20240119 170000 C 20240101 20240131`
 
-* Bulk:
-Get bulk EOD:
-   python main.py options bulk eod AAPL 20240119 20240101 20240131
+### Bulk:
+#### Get bulk EOD:
+   `python main.py options bulk eod AAPL 20240119 20240101 20240131`
 
-Get bulk OHLC:
-   python main.py options bulk ohlc AAPL 20240119 20240101 20240131
+#### Get bulk OHLC:
+   `python main.py options bulk ohlc AAPL 20240119 20240101 20240131`
 
-Get bulk trade:
-   python main.py options bulk trade AAPL 20240119 20240101 20240131
+#### Get bulk trade:
+   `python main.py options bulk trade AAPL 20240119 20240101 20240131`
 
-Get bulk trade quote:
-   python main.py options bulk trade-quote AAPL 20240119 20240101 20240131
+#### Get bulk trade quote:
+   `python main.py options bulk trade-quote AAPL 20240119 20240101 20240131`
 
-Get bulk trade Greeks:
-   python main.py options bulk trade-greeks AAPL 20240119 20240101 20240131
+#### Get bulk trade Greeks:
+   `python main.py options bulk trade-greeks AAPL 20240119 20240101 20240131`
 
-* Snapshot:
-Get quote snapshot:
-   python main.py options snapshot quote AAPL 20240119 170000 C
+### Snapshot:
+#### Get quote snapshot:
+   `python main.py options snapshot quote AAPL 20240119 170000 C`
 
-Get OHLC snapshot:
-   python main.py options snapshot ohlc AAPL 20240119 C 170000
+#### Get OHLC snapshot:
+   `python main.py options snapshot ohlc AAPL 20240119 C 170000`
 
-Get bulk quote snapshot:
-   python main.py options snapshot bulk-quote AAPL 20240119
+#### Get bulk quote snapshot:
+   `python main.py options snapshot bulk-quote AAPL 20240119`
 
-Get bulk OHLC snapshot:
-   python main.py options snapshot bulk-ohlc AAPL 20240119
+#### Get bulk OHLC snapshot:
+   `python main.py options snapshot bulk-ohlc AAPL 20240119`
 
-Get bulk open interest snapshot:
-   python main.py options snapshot bulk-open-interest AAPL 20240119
+#### Get bulk open interest snapshot:
+   `python main.py options snapshot bulk-open-interest AAPL 20240119`
