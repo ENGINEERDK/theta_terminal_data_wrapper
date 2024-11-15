@@ -87,6 +87,7 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.stocks_historical import ThetaDataStocksHistorical
+from src.theta_roots import ThetaRootsData
 from src.stocks import ThetaDataStocksSnapshot
 from src.options import ThetaDataOptions
 from src.start_terminal import ThetaTerminalSingleton
@@ -94,6 +95,7 @@ from typing import Optional, List
 
 app = typer.Typer(no_args_is_help=True)
 stocks_app = typer.Typer(no_args_is_help=True)
+roots_app = typer.Typer(no_args_is_help=True)
 historical_app = typer.Typer(no_args_is_help=True)
 snapshot_app = typer.Typer(no_args_is_help=True)
 options_app = typer.Typer(no_args_is_help=True)
@@ -101,6 +103,7 @@ options_historical_app = typer.Typer(no_args_is_help=True)
 options_bulk_app = typer.Typer(no_args_is_help=True)
 options_snapshot_app = typer.Typer(no_args_is_help=True)
 app.add_typer(stocks_app, name="stocks")
+app.add_typer(roots_app, name="roots")
 stocks_app.add_typer(historical_app, name="historical")
 stocks_app.add_typer(snapshot_app, name="snapshot")
 app.add_typer(options_app, name="options")
@@ -111,6 +114,7 @@ options_app.add_typer(options_snapshot_app, name="snapshot")
 historical_data = ThetaDataStocksHistorical()
 snapshot_data = ThetaDataStocksSnapshot()
 options_data = ThetaDataOptions()
+roots_data = ThetaRootsData()
 
 
 def with_spinner(func):
@@ -128,6 +132,19 @@ def with_spinner(func):
 
     return wrapper
 
+@roots_app.command(name="data")
+@with_spinner
+def get_roots_data(
+    asset: str,
+):
+    """Get historical quotes for a given symbol and date range."""
+    result = roots_data.get_roots(
+        asset, write_csv=True
+    )
+    if result is not None:
+        typer.echo("Data retrieved successfully")
+    else:
+        typer.echo("Failed to retrieve data")
 
 # Historical commands
 @historical_app.command(name="eod-report")
@@ -441,9 +458,10 @@ def bulk_option_ohlc(root: str, exp: str, start_date: str, end_date: str, ivl: i
 
 
 if __name__ == "__main__":
-    try:
-        theta_terminal = ThetaTerminalSingleton()
-        app()
-    finally:  
-        if theta_terminal:  
-            theta_terminal._cleanup_and_exit()
+    app()
+    # try:
+    #     theta_terminal = ThetaTerminalSingleton()
+    #     app()
+    # finally:  
+    #     if theta_terminal:  
+    #         theta_terminal._cleanup_and_exit()

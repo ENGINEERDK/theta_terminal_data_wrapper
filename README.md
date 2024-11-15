@@ -57,13 +57,19 @@ This will save the data as a local CSV named `ohlc_AAPL_20240101_20240201.csv`. 
 
 ## Features
 
-1. Starts the Theta Terminal connection in backgroud automatically.
+1. Starts the Theta Terminal connection in backgroud automatically.[Not supported now]
 2. Downloads the data in CSV files using below commands.
 
 ## Example Commands
 
 Example usage commands:
 Copy and execute the commands below in your terminal directly from project root, CSV data will be saved in project root.
+
+### List roots Data:
+#### List all roots:
+1. option 2. stock 3. index
+   `python main.py roots data stock`
+   `python main.py roots data option`
 
 ### Stocks Historical Data:
 
@@ -81,10 +87,10 @@ Copy and execute the commands below in your terminal directly from project root,
    `python main.py stocks snapshot quotes AAPL`
 
 #### Get real-time OHLC:
-   `python main.py stocks snapshot ohlc NVDA
+   `python main.py stocks snapshot ohlc NVDA`
 
 #### Get real-time trades:
-   python main.py stocks snapshot trades TSLA
+   `python main.py stocks snapshot trades TSLA`
 
 ### Options Data:
 ### Historical:
