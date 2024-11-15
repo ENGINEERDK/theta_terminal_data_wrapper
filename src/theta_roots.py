@@ -101,6 +101,85 @@ class ThetaRootsData(ThetaDataBase):
             response, write_csv, "roots", asset
         )
     
+    def get_expiry(
+        self, root: str, write_csv: bool = False
+    ) -> pd.DataFrame | None:
+        """
+        Get roots available in Theta Data.
+
+        The returned data includes the following columns:
+        - name: Name of the root
+
+        Args:
+            asset (str): Asset class (e.g., "stock", "index", "option")
+
+        Returns:
+            pd.DataFrame | None: DataFrame of EOD data, or None if request fails
+        """
+        self.logger.info(
+            f"Getting expiry report for {root}"
+        )
+        endpoint = "/v2/list/expirations"
+        params = {"root" : root}
+        response = self.send_request(endpoint, params)
+        return self._process_response(
+            response, write_csv, "expiry", root
+        )
+    
+    def get_strikes(
+        self, root: str, expiry: str, write_csv: bool = False
+    ) -> pd.DataFrame | None:
+        """
+        Get strikes available in Theta Data.
+
+        The returned data includes the following columns:
+        - name: Name of the root
+
+        Args:
+            asset (str): Asset class (e.g., "stock", "index", "option")
+
+        Returns:
+            pd.DataFrame | None: DataFrame of EOD data, or None if request fails
+        """
+        self.logger.info(
+            f"Getting strikes for {root}"
+        )
+        endpoint = "/v2/list/strikes"
+        params = {"root" : root, "exp" : expiry}
+        response = self.send_request(endpoint, params)
+        return self._process_response(
+            response, write_csv, "strikes", f"{root}_{expiry}"
+        )
+    
+    def get_dates(
+        self, asset: str, root: str, write_csv: bool = False
+    ) -> pd.DataFrame | None:
+        """
+        Get dates available in Theta Data.
+
+        The returned data includes the following columns:
+        - name: Name of the root
+
+        Args:
+            asset (str): Asset class (e.g., "stock", "index", "option")
+
+        Returns:
+            pd.DataFrame | None: DataFrame of EOD data, or None if request fails
+        """
+        self.logger.info(
+            f"Getting dates for {root}"
+        )
+        endpoint = "/v2/list/dates/"
+        if asset == "index":
+            endpoint = endpoint + "index/trade"
+        else:
+            endpoint = endpoint + asset +"/quote"
+        params = {"root" : root}
+        response = self.send_request(endpoint, params)
+        return self._process_response(
+            response, write_csv, "dates", f"{root}"
+        )
+    
     def get_eod_report(
         self, symbol: str, start_date: str, end_date: str, write_csv: bool = False
     ) -> pd.DataFrame | None:

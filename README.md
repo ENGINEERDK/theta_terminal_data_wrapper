@@ -67,12 +67,23 @@ Copy and execute the commands below in your terminal directly from project root,
 
 ### List roots Data:
 #### List all roots:
-1. option 2. stock 3. index
+   1. option 2. stock 3. index
    `python main.py roots data stock`
    `python main.py roots data option`
 
-### Stocks Historical Data:
+#### List expiry of given root:
+   `python main.py roots expiry AAPL`
 
+#### List strikes of a expiry:
+   `python main.py roots strikes AAPL 20220930`
+
+#### List dates of available data for given root:
+   `python main.py roots dates stock AAPL`
+   `python main.py roots dates index SPX`
+   `python main.py roots dates option AAPL 20220930`
+   `python main.py roots dates option AAPL 20220930 140000 C`
+
+### Stocks Historical Data:
 #### Get end-of-day report:
    
    `python main.py stocks historical eod-report AAPL 20240101 20240131`

@@ -146,6 +146,50 @@ def get_roots_data(
     else:
         typer.echo("Failed to retrieve data")
 
+@roots_app.command(name="expiry")
+@with_spinner
+def get_roots_expiry(
+    root: str,
+):
+    """Get historical quotes for a given symbol and date range."""
+    result = roots_data.get_expiry(
+        root, write_csv=True
+    )
+    if result is not None:
+        typer.echo("Data retrieved successfully")
+    else:
+        typer.echo("Failed to retrieve data")
+
+@roots_app.command(name="strikes")
+@with_spinner
+def get_root_strikes(
+    root: str,
+    expiry: str,
+):
+    """Get Strikes of given root of any expiry."""
+    result = roots_data.get_strikes(
+        root, expiry, write_csv=True
+    )
+    if result is not None:
+        typer.echo("Data retrieved successfully")
+    else:
+        typer.echo("Failed to retrieve data")
+
+@roots_app.command(name="dates")
+@with_spinner
+def get_root_strikes(
+    asset: str,
+    root: str,
+):
+    """Get dates of given root of any expiry."""
+    result = roots_data.get_dates(
+        asset, root, write_csv=True
+    )
+    if result is not None:
+        typer.echo("Data retrieved successfully")
+    else:
+        typer.echo("Failed to retrieve data")
+
 # Historical commands
 @historical_app.command(name="eod-report")
 @with_spinner
