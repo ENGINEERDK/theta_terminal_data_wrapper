@@ -80,8 +80,16 @@ Copy and execute the commands below in your terminal directly from project root,
 #### List dates of available data for given root:
    `python main.py roots dates stock AAPL`
    `python main.py roots dates index SPX`
+
+* Work in Progress
+------------------
    `python main.py roots dates option AAPL 20220930`
    `python main.py roots dates option AAPL 20220930 140000 C`
+
+#### List all contracts traded/quoted at given date:
+   `python main.py roots contracts option AAPL 20230512`
+
+------------------
 
 ### Stocks Historical Data:
 #### Get end-of-day report:
